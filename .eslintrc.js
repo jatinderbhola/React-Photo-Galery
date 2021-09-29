@@ -1,30 +1,25 @@
+
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-    node: true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
   },
-  extends: [
+  "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:node/recommended",
-    "prettier",
-    "plugin:prettier/recommended",
   ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-      modules: true,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
     },
-    ecmaVersion: 6,
-    sourceType: "module",
+    "ecmaVersion": 12,
+    "sourceType": "module"
   },
-  plugins: ["node", "prettier"],
-  rules: {
-    curly: ["error", "all"],
-    "no-console": "off",
-    "prettier/prettier": "error",
-    "node/no-missing-import": "off",
-    "node/no-unsupported-features/es-syntax": "off",
-  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+  }
 };
