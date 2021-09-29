@@ -1,6 +1,6 @@
 import React from "react";
 import PhotoDataService from "./services/photo";
-
+import HomePage from './components/homepage/homepage.component';
 class App extends React.Component {
 
   constructor() {
@@ -8,14 +8,18 @@ class App extends React.Component {
 
     this.state = {
       APP_NAME: "Google Photo Ditto!",
-      images: [{ name: "jatinder1" }, { name: "jatinder2" }, { name: "jatinder3" }, { name: "jatinder4" }]
+      images: []
     };
 
   }
 
   componentDidMount() {
     PhotoDataService.getAll()
-      .then(res => this.setState({ data: res.express }))
+      .then(res => {
+        this.setState({ images: res.data.photos });
+        console.log(res.data);
+
+      })
       .catch(err => console.log(err));
   }
 
@@ -24,12 +28,14 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        <header className='App-header'>
+        <HomePage />
+
+        <header >
           <h1>{this.state.APP_NAME} </h1>
         </header>
 
         {
-          this.state.images.map(image => (<h1 key={image.name}> {image.name} </h1>))
+          this.state.images && this.state.images.map(image => (<h1 key={image.id}> {image.url} </h1>))
         }
       </div>
     );
