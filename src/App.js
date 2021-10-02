@@ -1,6 +1,8 @@
 import React from "react";
 import PhotoDataService from "./services/photo";
-import HomePage from './components/homepage/homepage.component';
+import HomePage from "./pages/homepage/homepage.component";
+import Gallery from 'react-grid-gallery';
+
 class App extends React.Component {
 
   constructor() {
@@ -17,8 +19,6 @@ class App extends React.Component {
     PhotoDataService.getAll()
       .then(res => {
         this.setState({ images: res.data.photos });
-        console.log(res.data);
-
       })
       .catch(err => console.log(err));
   }
@@ -28,15 +28,9 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
+        <h2> {this.state.APP_NAME}</h2>
         <HomePage />
-
-        <header >
-          <h1>{this.state.APP_NAME} </h1>
-        </header>
-
-        {
-          this.state.images && this.state.images.map(image => (<h1 key={image.id}> {image.url} </h1>))
-        }
+        <Gallery images={this.state.images} backdropClosesModal={true} />
       </div>
     );
   }
@@ -44,3 +38,7 @@ class App extends React.Component {
 
 
 export default App;
+
+
+
+
