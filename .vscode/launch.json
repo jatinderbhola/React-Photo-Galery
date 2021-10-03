@@ -11,6 +11,14 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
+            "eslint.workingDirectories": [
+                "./${workspaceFolder}" // replace {PATH_TO_CLIENT} with you own path
+            ],
+            "runtimeExecutable": "${env:HOME}/.nvm/versions/node/v14.17.0/bin/node",
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
+            ],
             "program": "${workspaceFolder}/server/index.js",
         }
     ]
