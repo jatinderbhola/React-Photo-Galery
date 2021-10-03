@@ -30,7 +30,9 @@ class App extends React.Component {
       <div className='App'>
         <h2> {this.state.APP_NAME}</h2>
         <HomePage />
-        <Gallery images={this.state.images} backdropClosesModal={true} />
+        <div className="image-grid">
+          <Gallery images={this.state.images} backdropClosesModal={true} className="image" />
+        </div>
       </div>
     );
   }

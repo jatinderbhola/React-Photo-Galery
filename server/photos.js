@@ -64,6 +64,11 @@ const urls = [
       
       */
 const data = urls.map((u, index) => {
+  let _urlParse = new URL(u);
+  let width = _urlParse.searchParams.get("w");
+  width = parseInt(width / 8);
+  let height = 160;
+
   return {
     id: uuidv4(),
     src: u,
@@ -72,8 +77,8 @@ const data = urls.map((u, index) => {
     thumbnail: u,
     isSelected: false,
     caption: "photo" + index,
-    thumbnailWidth: 320,
-    thumbnailHeight: 174
+    thumbnailWidth: width,
+    thumbnailHeight: height
   };
 });
 
