@@ -21,18 +21,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-.image-grid {
-  display: "block";
-  min-height: "1px";
-  width: "100%";
-  border: "1px solid #ddd";
-  overflow: "auto";
-
-}
-
-.image-grid .image-grid {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}

@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import './footer.styles.scss';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/fontawesome-free-solid';
 import { connect } from "react-redux";
 
+import './footer.style.scss';
 import {
     getSelectedCount,
+    clearSelected
 } from "./../../redux/Image/image.actions";
 
 class Footer extends Component {
@@ -16,13 +18,16 @@ class Footer extends Component {
 
     render() {
         return (
-            <div>
-                <div className="footer">
-                    <button onClick={this.clearSelected}>
-                        clear
-                    </button>
-                    <div> {this.props.selectedCount} </div>
-                    <div> Selected </div>
+            <div className="footer">
+                <div className="child-section margin">
+                    <FontAwesomeIcon icon={faTimes} size="lg" onClick={this.props.clearSelected} />
+                    <div> 
+                        <div>{this.props.selectedCount + " Selected"}</div>
+                    </div>
+                    <div className="child-section width">
+                        <FontAwesomeIcon icon={faTimes}  size="lg" onClick={this.props.clearSelected} />
+                        <FontAwesomeIcon  icon={faTimes}  size="lg" onClick={this.props.clearSelected} />
+                    </div>
                 </div>
             </div>
         )
@@ -40,6 +45,7 @@ const mapStateToProps = state => {
   const mapDispatchToProps = dispatch => {
     return {
         getSelectedCount: () => dispatch(getSelectedCount()),
+        clearSelected: () => dispatch(clearSelected()),
     }
   }
   
