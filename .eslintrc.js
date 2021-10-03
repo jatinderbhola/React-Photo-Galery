@@ -1,25 +1,26 @@
-
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true,
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
-    "plugin:react/recommended",
+    "plugin:react/recommended"
   ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+      modules: true,
     },
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    ecmaVersion: 2018,
+    sourceType: "module",
   },
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-  }
+  plugins: ["react"],
+  rules: {
+    curly: ["error", "all"],
+    "no-console": "off",
+    "node/no-missing-import": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+  },
 };

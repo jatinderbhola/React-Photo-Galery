@@ -9,6 +9,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-grid-gallery": "^0.5.5",
+    "react-redux": "^7.2.5",
     "react-scripts": "^4.0.1",
     "scss": "^0.2.4",
     "uuid": "^8.3.1",
@@ -17,8 +18,10 @@
   "devDependencies": {
     "concurrently": "^5.3.0",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.26.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "concurrently \"npm:start:server\" \"npm:start:client\"",
