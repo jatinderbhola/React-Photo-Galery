@@ -53,12 +53,32 @@ const urls = [
   "https://images.unsplash.com/photo-1500815845799-7748ca339f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2682&q=80",
   "https://images.unsplash.com/photo-1468818438311-4bab781ab9b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80",
 ];
+/*
 
-const data = urls.map((u) => {
+ src: photo,
+      thumbnail: photo,
+      thumbnailWidth: 320,
+      thumbnailHeight: 174,
+      isSelected: false,
+      caption: "photo" + index
+      
+      */
+const data = urls.map((u, index) => {
+  let _urlParse = new URL(u);
+  let width = _urlParse.searchParams.get("w");
+  width = parseInt(width / 8);
+  let height = 160;
+
   return {
     id: uuidv4(),
+    src: u,
     website: null,
     url: u,
+    thumbnail: u,
+    isSelected: false,
+    caption: "photo" + index,
+    thumbnailWidth: width,
+    thumbnailHeight: height
   };
 });
 
