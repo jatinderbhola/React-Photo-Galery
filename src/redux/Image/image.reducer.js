@@ -1,10 +1,10 @@
-import { SET_IMAGES, CLEAR_SELECTED, SET_SELECTED } from './image.types';
+import { SET_IMAGES, CLEAR_SELECTED, SET_SELECTED, PENDING_IMAGE_APPROVAL } from './image.types';
 
 
 const INITIAL_STATE = {
     images: [],
     selectedCount: 0,
-    waitingForApproval: 0
+    pendingImageApproval: 0
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -46,17 +46,30 @@ const reducer = (state = INITIAL_STATE, action) => {
 
             };
 
-        // case POST_SELECTED:
-        //     var images = state.images.slice();
-        //     var selectedImage = state.images.filter(image => image.isSelected);
+        case PENDING_IMAGE_APPROVAL:
+            var count = state.pendingImageApproval;
+            if (action.process.type === 'set-upload-count') {
+                count += action.process.count;
+            } else {
+                count -= action.process.count;
+            }
 
-        //     if (selectedImage) { }
+            if (count === 0) {
+                count = 0;
+                state.images = state.images.map(image => {
+                    if (image.isSelected === true) {
+                        image.isSelected = false;
+                    }
+                    return image;
+                })
+                state.selectedCount = 0;
+            }
 
-        //     return {
-        //         ...state,
-        //         waitingForApproval: (state.waitingForApproval + selectedImage.length)
+            return {
+                ...state,
+                pendingImageApproval: count
 
-        //     };
+            };
 
         default: return state;
 

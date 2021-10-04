@@ -7,7 +7,6 @@ import ShareMe from '../share-me/share-me.component';
 
 import './footer.style.scss';
 import {
-    getSelectedCount,
     clearSelected
 } from "./../../redux/Image/image.actions";
 
@@ -45,7 +44,6 @@ const mapStateToProps = state => {
   
   const mapDispatchToProps = dispatch => {
     return {
-        getSelectedCount: () => dispatch(getSelectedCount()),
         clearSelected: () => dispatch(clearSelected()),
     }
   }

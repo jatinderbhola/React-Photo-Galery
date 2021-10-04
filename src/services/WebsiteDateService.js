@@ -7,10 +7,10 @@ class WebsiteDateService {
     }
 
 
-    post(id = null) {
-        if (typeof id === null) {
-            Promise.reject(new Error('photo id is missing in the request'));
-        }
+    post(id) {
+        // if (typeof id === null) {
+        //     Promise.reject(new Error('photo id is missing in the request'));
+        // }
         return http.post(`website/photos/${id}`);
     }
 

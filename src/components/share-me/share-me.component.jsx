@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShare } from '@fortawesome/fontawesome-free-solid';
 import { connect } from "react-redux";
 import PopUp from '../popup-model/popup.component';
-
 import './share-me.style.scss';
 import {
-    getSelectedCount,
-    clearSelected
+    clearSelected,
+    pendingImageApproval
 } from "../../redux/Image/image.actions";
+import WebsiteDateService from '../../services/WebsiteDateService';
 
 class ShareMe extends Component {
     constructor(props) {
@@ -69,8 +69,17 @@ class ShareMe extends Component {
                 err.message,
                 "Closing socket"
             );
-
+            
             ws.close();
+        };
+
+        // websocket onerror event listener
+        ws.onmessage = (event, err) => {
+            console.log({event, err});
+            this.props.pendingImageApproval({
+                type: 'reset-upload-count-by-1',
+                count : 1
+            })
         };
     };
 
@@ -91,6 +100,31 @@ class ShareMe extends Component {
 
         if(typeof post === 'boolean' && post === true){
             // post images
+            let selectedImages = this.props.images.filter(image => image.isSelected);
+            
+            if(selectedImages && selectedImages.length > 0){
+                this.props.pendingImageApproval({
+                    type: 'set-upload-count',
+                    count: selectedImages.length
+                })
+
+                let promises = selectedImages.map(image => {
+                    return WebsiteDateService.post(image.id);
+                })
+
+                Promise.allSettled(promises)
+                .then((results)=> {
+                    results.forEach(result => {
+                        if (result.status === "rejected") {
+                            this.props.pendingImageApproval({
+                                type: 'reset-upload-count-by-1',
+                                count : 1
+                            })
+                            console.error({result});
+                        }
+                    });
+                })
+            }
         }
     }
 
@@ -109,14 +143,15 @@ class ShareMe extends Component {
 
 const mapStateToProps = state => {
     return {
-      selectedCount: state.image.selectedCount
+      selectedCount: state.image.selectedCount,
+      images: state.image.images
     }
 }
   
 const mapDispatchToProps = dispatch => {
     return {
-        getSelectedCount: () => dispatch(getSelectedCount()),
-        clearSelected: () => dispatch(clearSelected()),
+        pendingImageApproval : (action) => dispatch(pendingImageApproval(action)),
+        clearSelected: () => dispatch(clearSelected())
     }
 }
 
