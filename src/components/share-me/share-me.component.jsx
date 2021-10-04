@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShare } from '@fortawesome/fontawesome-free-solid';
 import { connect } from "react-redux";
 import PopUp from '../popup-model/popup.component';
-import './share-me.style.scss';
+import './share-me.style.css';
 import { toast } from "react-toastify";
 import {
     clearSelected,

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PhotoDataService from "./../../services/PhotoDataService";
 import Gallery from 'react-grid-gallery';
 
-import './photo-gallery-grid.style.scss';
+import './photo-gallery-grid.style.css';
 
 import { connect } from "react-redux";
 

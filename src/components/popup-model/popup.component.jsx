@@ -1,6 +1,6 @@
 import React from 'react';
 // styling
-import './popup.style.scss';
+import './popup.style.css';
 
 /* eslint-disable react/prop-types */
 const PopUp = (props) => {

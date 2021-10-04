@@ -5,7 +5,7 @@ import { faTimes, faUser } from '@fortawesome/fontawesome-free-solid';
 import { connect } from "react-redux";
 import ShareMe from '../share-me/share-me.component';
 
-import './footer.style.scss';
+import './footer.style.css';
 import {
     clearSelected
 } from "./../../redux/Image/image.actions";

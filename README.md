@@ -9,7 +9,10 @@ This repository contains two components:
 
 ## Prerequisites
 
-- Node >= v12
+- Node >= v12 
+### DEV NOTES:
+Node: v14.17.0
+NPM: 6.14.13
 
 ## Getting Started
 

@@ -65,9 +65,9 @@ input[type="button"] {
     text-align: center;
     position: relative;
 
-    :active {
-        top: 0.1em;
-    }
+}
+input[type="button"]:active {
+    top: 0.1em;
 }
 
 :disabled {

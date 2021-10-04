@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-import './spinner-with-love.style.scss';
+import './spinner-with-love.style.css';
 
 class SpinnerWithLove extends Component {
 
