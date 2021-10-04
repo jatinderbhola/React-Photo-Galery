@@ -1,10 +1,4 @@
-import { GET_IMAGES, SET_IMAGES, CLEAR_SELECTED, GET_SELECTED_COUNT, SET_SELECTED } from './image.types';
-
-export const getImages = () => {
-    return {
-        type: GET_IMAGES,
-    };
-};
+import { SET_IMAGES, CLEAR_SELECTED, SET_SELECTED, PENDING_IMAGE_APPROVAL } from './image.types';
 
 export const setImages = (images) => {
     return {
@@ -19,15 +13,16 @@ export const clearSelected = () => {
     };
 };
 
-export const getSelectedCount = () => {
-    return {
-        type: GET_SELECTED_COUNT,
-    };
-};
-
 export const setSelected = (index) => {
     return {
         type: SET_SELECTED,
         index: index
+    };
+};
+
+export const pendingImageApproval = (process) => {
+    return {
+        type: PENDING_IMAGE_APPROVAL,
+        process: process
     };
 };
