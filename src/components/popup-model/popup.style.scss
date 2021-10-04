@@ -1,0 +1,50 @@
+/* POP UP */
+.PopUp {
+    position: fixed;
+
+    left: 25%;
+    top: 30%;
+
+    width: 50%;
+
+    border: 1px solid #011627;
+    border-radius: 1em;
+    box-shadow: -2px 5px 5px #E71D36;
+
+    background-color: #FDFFFC;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #011627;
+}
+
+.popup-x {
+    width: 3em;
+    height: 2em;
+
+    border: none;
+    border-top-right-radius: 1em;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+
+    align-self: flex-end;
+    justify-self: flex-start;
+}
+
+.pu-button-container {
+    margin-bottom: 0.5em;
+}
+
+.pu-img {
+    width: 20%;
+}
+
+.pu-content-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

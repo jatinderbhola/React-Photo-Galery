@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/fontawesome-free-solid';
+import { faTimes, faShare, faUser } from '@fortawesome/fontawesome-free-solid';
 import { connect } from "react-redux";
+import PopUp from '../popup-model/popup.component';
 
 import './footer.style.scss';
 import {
@@ -20,14 +21,15 @@ class Footer extends Component {
         return (
             <div className="footer">
                 <div className="child-section margin">
-                    <FontAwesomeIcon icon={faTimes} size="lg" onClick={this.props.clearSelected} />
+                    <FontAwesomeIcon icon={faTimes} size="lg" title="clear selection" onClick={this.props.clearSelected} />
                     <div> 
                         <div>{this.props.selectedCount + " Selected"}</div>
                     </div>
                     <div className="child-section width">
-                        <FontAwesomeIcon icon={faTimes}  size="lg" onClick={this.props.clearSelected} />
-                        <FontAwesomeIcon  icon={faTimes}  size="lg" onClick={this.props.clearSelected} />
+                        <FontAwesomeIcon icon={faShare}  size="lg" title="post images for approval" onClick={this.props.clearSelected} />
+                        <FontAwesomeIcon  icon={faUser}  size="lg" title="user account" onClick={this.props.clearSelected} />
                     </div>
+                    <PopUp />
                 </div>
             </div>
         )
