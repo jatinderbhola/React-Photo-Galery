@@ -3,7 +3,8 @@ import { GET_IMAGES, SET_IMAGES, CLEAR_SELECTED, GET_SELECTED_COUNT, SET_SELECTE
 
 const INITIAL_STATE = {
     images: [],
-    selectedCount: 0
+    selectedCount: 0,
+    waitingForApproval: 0
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -57,6 +58,18 @@ const reducer = (state = INITIAL_STATE, action) => {
                 selectedCount: images.filter(image => image.isSelected).length
 
             };
+
+        // case POST_SELECTED:
+        //     var images = state.images.slice();
+        //     var selectedImage = state.images.filter(image => image.isSelected);
+
+        //     if (selectedImage) { }
+
+        //     return {
+        //         ...state,
+        //         waitingForApproval: (state.waitingForApproval + selectedImage.length)
+
+        //     };
 
         default: return state;
 
