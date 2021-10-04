@@ -71,9 +71,8 @@ const data = urls.map((u, index) => {
 
   return {
     id: uuidv4(),
-    src: u,
     website: null,
-    url: u,
+    src: u,
     thumbnail: u,
     isSelected: false,
     caption: "photo" + index,
