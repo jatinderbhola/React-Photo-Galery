@@ -1,4 +1,4 @@
-import { GET_IMAGES, SET_IMAGES, CLEAR_SELECTED, GET_SELECTED_COUNT, SET_SELECTED } from './image.types';
+import { SET_IMAGES, CLEAR_SELECTED, SET_SELECTED } from './image.types';
 
 
 const INITIAL_STATE = {
@@ -10,12 +10,6 @@ const INITIAL_STATE = {
 const reducer = (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
-        case GET_IMAGES:
-
-            return {
-                ...state,
-                images: state.images
-            };
 
         case SET_IMAGES:
             return {
@@ -35,13 +29,6 @@ const reducer = (state = INITIAL_STATE, action) => {
                     return image;
                 }),
                 selectedCount: 0
-
-            };
-
-        case GET_SELECTED_COUNT:
-            return {
-                ...state,
-                selectedCount: state.selectedCount
 
             };
 

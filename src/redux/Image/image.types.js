@@ -1,6 +1,4 @@
 
-export const GET_IMAGES = 'GET_IMAGES';
 export const SET_IMAGES = 'SET_IMAGES';
-export const GET_SELECTED_COUNT = 'GET_SELECTED_COUNT';
 export const CLEAR_SELECTED = 'CLEAR_SELECTED';
 export const SET_SELECTED = 'SET_SELECTED';
