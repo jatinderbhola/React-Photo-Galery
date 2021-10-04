@@ -5,8 +5,11 @@ import './homepage.styles.scss';
 const HomePage = () => (
   <div className='homepage'>
     <h1>
-        Welcome to CrowdRiff
+        CrowdRiff : Photo Gallery
     </h1>
+    <p>
+      made with ❤️ by Jatinder bhola (JatinderBhola@gmail.com)
+    </p>
   </div>
 );
 

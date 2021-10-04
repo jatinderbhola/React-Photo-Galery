@@ -22,7 +22,13 @@ class Footer extends Component {
                 <div className="child-section margin">
                     <FontAwesomeIcon icon={faTimes} size="lg" title="clear selection" onClick={this.props.clearSelected} />
                     <div> 
-                        <div>{this.props.selectedCount + " Selected"}</div>
+                        <div>
+                            { 
+                                (this.props.selectedCount === 0 && "No Image Selected") ||
+                                (this.props.selectedCount === 1 && "1 Image Selected") ||
+                                (this.props.selectedCount + " Images Selected")
+                            }
+                        </div>
                     </div>
                     <div className="child-section width">
                         <ShareMe selectedCount={this.props.selectedCount} />

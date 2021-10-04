@@ -1,14 +1,15 @@
 .lds-heart {
     display: inline-block;
-    position: absolute;
+    position: fixed;
     width: 80px;
     height: 80px;
     transform: rotate(45deg);
     transform-origin: 40px 40px;
+    background-color: rgb(212, 14, 14);
 
     top: 50%;
     left: 50%;
-    background-color: red;
+
 }
 
 .lds-heart div {
@@ -17,7 +18,7 @@
     position: absolute;
     width: 32px;
     height: 32px;
-    background: #fff;
+    background-color: #fff;
     animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -28,7 +29,8 @@
     display: block;
     width: 32px;
     height: 32px;
-    background: #fff;
+    background-color: #fff;
+
 }
 
 .lds-heart div:before {

@@ -88,3 +88,10 @@ Here's a list of questions we ask when evaluating challenge functionality:
 * Can we select photos and invoke the send to website flow?
 	* Does the loading state appear when we invoke this flow?
 	* Are the photos marked as “sent to website” once the flow has completed? Does the loading state disappear?
+
+
+
+
+Special Thanks to :
+- https://dev.to/ community
+- https://medium.com community
