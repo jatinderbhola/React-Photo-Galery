@@ -28,7 +28,7 @@ app.post("/website/photos/:id", (req, res) => {
     return;
   }
   if (photo.website) {
-    res.status(400).json({ error: "photo already sent to website" });
+    res.status(400).json({ error: `photo with ${req.params.id} already sent to website` });
     return;
   }
 

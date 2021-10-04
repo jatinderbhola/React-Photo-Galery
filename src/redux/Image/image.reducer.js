@@ -1,4 +1,5 @@
 import { SET_IMAGES, CLEAR_SELECTED, SET_SELECTED, PENDING_IMAGE_APPROVAL } from './image.types';
+import { toast } from "react-toastify";
 
 
 const INITIAL_STATE = {
@@ -63,6 +64,7 @@ const reducer = (state = INITIAL_STATE, action) => {
                     return image;
                 })
                 state.selectedCount = 0;
+                toast.success("Approval completed!");
             }
 
             return {

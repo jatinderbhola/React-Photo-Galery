@@ -5,6 +5,7 @@ import { faShare } from '@fortawesome/fontawesome-free-solid';
 import { connect } from "react-redux";
 import PopUp from '../popup-model/popup.component';
 import './share-me.style.scss';
+import { toast } from "react-toastify";
 import {
     clearSelected,
     pendingImageApproval
@@ -108,6 +109,8 @@ class ShareMe extends Component {
                     count: selectedImages.length
                 })
 
+                toast.warn("Uploading images for approval!");
+
                 let promises = selectedImages.map(image => {
                     return WebsiteDateService.post(image.id);
                 })
@@ -120,6 +123,12 @@ class ShareMe extends Component {
                                 type: 'reset-upload-count-by-1',
                                 count : 1
                             })
+
+                            if(result?.reason?.response?.data?.error){
+                                toast.error(result?.reason?.response?.data?.error);
+                            }else{
+                                toast.error("Photo is already uploaded!", {autoClose: 5000});
+                            }
                             console.error({result});
                         }
                     });

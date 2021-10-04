@@ -6,6 +6,9 @@ import PhotoGalleryGrid from "./components/photo-gallery-grid/photo-gallery-grid
 import Footer from './components/footer/footer.component';
 import SpinnerWithLove from "./components/spinner/spinner-with-love.component";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 /* eslint-disable react/prop-types */
 class App extends React.Component {
@@ -21,6 +24,8 @@ class App extends React.Component {
         <PhotoGalleryGrid />
         <Footer />
         <SpinnerWithLove />
+
+        <ToastContainer autoClose={2000} />
       </div>
     );
   }
